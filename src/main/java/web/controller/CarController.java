@@ -18,12 +18,8 @@ public class CarController {
 
     @GetMapping(value = "/cars")
     public String myCarMeth(ModelMap model,
-                            @RequestParam(value = "count", required = false) Integer count) {
-        if (count == null) {
-            model.addAttribute("cars", carService.getCars(5));
-        } else {
-            model.addAttribute("cars", carService.getCars(count));
-        }
+                            @RequestParam(value = "count", required = false, defaultValue = "5") Integer count) {
+        model.addAttribute("cars", carService.getCars(count));
         return "cars";
     }
 }
