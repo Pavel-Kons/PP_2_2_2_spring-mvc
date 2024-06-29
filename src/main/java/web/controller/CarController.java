@@ -16,7 +16,7 @@ public class CarController {
         this.carService = carService;
     }
 
-    @GetMapping(value = "/car")
+    @GetMapping(value = "/cars")
     public String myCarMeth(ModelMap model,
                             @RequestParam(value = "count", required = false) Integer count) {
         if (count == null) {
@@ -24,6 +24,6 @@ public class CarController {
         } else {
             model.addAttribute("cars", carService.getCars(count));
         }
-        return "car";
+        return "cars";
     }
 }
