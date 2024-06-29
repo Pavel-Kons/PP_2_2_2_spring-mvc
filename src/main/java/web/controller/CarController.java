@@ -14,6 +14,8 @@ public class CarController {
         List<String> message = new ArrayList<>();
         message.add("Car");
         model.addAttribute("Messages", message);
-        return "index";
+
+
+        return "car";
     }
 }
