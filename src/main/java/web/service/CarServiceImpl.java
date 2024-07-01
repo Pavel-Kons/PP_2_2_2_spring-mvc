@@ -8,8 +8,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class CarServiceImpl implements CarService {
-    private List<Car> createCars() {
-        return List.of(
+
+    private final List<Car> carList;
+
+    public CarServiceImpl() {
+        carList = List.of(
                 new Car(1L, "BMW", "Black"),
                 new Car(2L, "Audi", "White"),
                 new Car(3L, "Mercedes", "White"),
@@ -19,8 +22,7 @@ public class CarServiceImpl implements CarService {
     }
 
     public List<Car> getCars(int count) {
-        return createCars()
-                .stream()
+        return carList.stream()
                 .limit(count)
                 .collect(Collectors.toList());
     }
